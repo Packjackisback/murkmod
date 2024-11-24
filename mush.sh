@@ -668,7 +668,9 @@ revert() {
     echo "Setting kernel priority"
 
     DST=$(get_largest_cros_blockdev)
-
+    echo "Skibidi debugging time"
+    echo "______________________"
+    echo "$DST"
     if doas "((\$(cgpt show -n \"$DST\" -i 2 -P) > \$(cgpt show -n \"$DST\" -i 4 -P)))"; then
         doas cgpt add "$DST" -i 2 -P 0
         doas cgpt add "$DST" -i 4 -P 1
